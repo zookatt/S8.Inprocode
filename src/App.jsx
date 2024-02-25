@@ -1,35 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Translate from './components/translate/Translate'
+import Balance from './components/balance/Balance'
+import Expenses from './components/expenses/Expenses'
+import LogicContext from './context/LogicContext'
 
 function App() {
-  const [count, setCount] = useState(0)
+    return (
+        <LogicContext>
+            <main className="container mx-auto mt-5 px-5 sm:w-full sm:max-w-[500px] md:max-w-[600px] lg:max-w-[700px] xl:max-w-[500px]">
+                <section className="bg-GraficsBlue h-[60px] mb-5">
+                    <Translate />
+                </section>
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+                <section className="bg-AppOrange text-white rounded-lg h-[80px] mb-5">
+                    <Balance />
+                </section>
+
+                <section className="bg-white rounded-lg h-[400px]">
+                    <Expenses />
+                </section>
+            </main>
+        </LogicContext>
+    )
 }
 
 export default App
