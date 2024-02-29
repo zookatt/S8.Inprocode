@@ -2,7 +2,9 @@ import { appLogicContext } from "./ContextProvider";
 import { useState, useEffect } from "react";
 
 const LogicContext = ({ children }) => {
-    // data grafico
+    // Implementa en Redux o Contexto la lógica para servir los datos a los distintos componentes:
+
+    // - Los datos de la gráfica.
     var expenses = [250, 450, 500, 300, 250, 430, 550];
     const backgroundColors = expenses.map((val) =>
         val > 500 ? "rgb(117, 181, 191)" : "rgb(234, 118, 93)",
@@ -42,7 +44,7 @@ const LogicContext = ({ children }) => {
             }
         ]
     };
-    // Implementa en Redux o Contexto la lógica para servir los datos a los distintos componentes:
+
 
     // - Servir el balance de gastos
     const [total, setTotal] = useState(0);
@@ -53,14 +55,18 @@ const LogicContext = ({ children }) => {
 
 
     // - El gasto de hoy
+    const todayIndex = new Date().getDay() - 1;
+    const todayExpense = expenses[todayIndex >= 0 ? todayIndex : 6];
 
     // - El % de variación entre ayer y hoy 
+    const yesterdayIndex = todayIndex > 0 ? todayIndex - 1 : 6;
+    const yesterdayExpense = expenses[yesterdayIndex];
+    const variationPercentage = (((todayExpense - yesterdayExpense) / yesterdayExpense) * 100).toFixed(2);
 
-    // - Los datos de la gráfica.
 
 
     return (
-        <appLogicContext.Provider value={{ myData, myOptions, total }}>
+        <appLogicContext.Provider value={{ myData, myOptions, total, todayExpense, variationPercentage }}>
             {children}
         </appLogicContext.Provider>
     )

@@ -28,12 +28,12 @@ describe('Balance', () => {
 
   test('should not be negative', () => {
     const total = 100;
-    expect(parseInt(screen.getByText(`${total} €`).textContent)).toBeGreaterThanOrEqual(0);
+    expect(parseFloat(screen.getByText(`${total} €`).textContent)).toBeGreaterThanOrEqual(0);
   });
 
 
   test('should be a number', () => {
     const total = 100;
-    expect(parseInt(screen.getByText(`${total} €`).textContent)).not.toBeNaN();
+    expect(parseFloat(screen.getByText(`${total} €`).textContent)).not.toBeNaN();
   });
 });
