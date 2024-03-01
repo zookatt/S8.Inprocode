@@ -47,7 +47,7 @@ Se implementa la visualización de los gastos totales de hoy y el porcentaje de 
 
 En este ejercicio, se implementa el multilingüismo utilizando la librería i18n y se asegura que el cambio de idioma sea inmediato en toda la aplicación.
 
-### Tareas a realizar:
+### Tareas realizadas:
 
 - Multilingüismo implementado utilizando la librería i18n.
 - Garantizado que al cambiar el idioma(Ingles, Castellano o Catalan), y que todos los textos de la aplicación se actualicen automáticamente.
