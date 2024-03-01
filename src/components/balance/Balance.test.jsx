@@ -18,7 +18,7 @@ describe('Balance', () => {
   })
 
   test('should show Balance component', () => {
-    expect(screen.getByText('Balance total')).toBeDefined();
+    expect(screen.getByText('balanceTitle')).toBeDefined();
   });
 
   test('should display total expenses', () => {

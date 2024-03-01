@@ -1,7 +1,10 @@
 import { appLogicContext } from "./ContextProvider";
 import { useState, useEffect } from "react";
+import { useTranslation } from 'react-i18next';
 
 const LogicContext = ({ children }) => {
+
+    const { t } = useTranslation();
     // Implementa en Redux o Contexto la lógica para servir los datos a los distintos componentes:
 
     // - Los datos de la gráfica.
@@ -9,7 +12,9 @@ const LogicContext = ({ children }) => {
     const backgroundColors = expenses.map((val) =>
         val > 500 ? "rgb(117, 181, 191)" : "rgb(234, 118, 93)",
     );
-    var days = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
+    var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+    const translatedDays = days.map(day => t(`weekdays.${day.toLowerCase()}`));
 
     var myOptions = {
         responsive: true,
@@ -34,7 +39,7 @@ const LogicContext = ({ children }) => {
     };
 
     var myData = {
-        labels: days,
+        labels: translatedDays,
         datasets: [
             {
                 label: 'Gastos',

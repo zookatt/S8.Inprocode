@@ -19,11 +19,11 @@ describe('ExpensesToday', () => {
     })
 
     test('should show today expenses', () => {
-        expect(screen.getByText('Gastos hoy')).toBeDefined();
+        expect(screen.getByText('todayExpensesTitle')).toBeDefined();
     });
 
     test('should show variation percentage', () => {
-        expect(screen.getByText('respecto ayer')).toBeDefined();
+        expect(screen.getByText('percentageTitle')).toBeDefined();
     });
 
     test('should display total expenses today', () => {
